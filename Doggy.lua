@@ -192,8 +192,8 @@ local Button = Tab:CreateButton({
 })
 
 local TabP = Window:NewTab("PlayerMoudles")
-local SectionP = PlayerMoudles:NewSection("PlayerMoudles")
-local Slider = Tab:CreateSlider({
+local SectionP = TabP:NewSection("PlayerMoudles")
+local Slider = TabP:CreateSlider({
 	Name = "Speed",
 	Range = {1, 100},
 	Increment = 10,
