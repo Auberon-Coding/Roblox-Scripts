@@ -106,24 +106,7 @@ local Section = Tab:CreateSection("Extra")
 local Button = Tab:CreateButton({
 	Name = "Del Hud",
 	Callback = function()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ProteinBuy:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenShop:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenReb:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ImageLabel:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenPack:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.PopSound:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.BlackMarket:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.LiftRemind:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.MuscleGain:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RebFrame:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ShopFrame:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenSkins:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.Bar:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.ImageLabel:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.TextLabel.TextLabel:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashHolder:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashButton:Destroy()
-	    game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RumbleHolder:Destroy()
+	    game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
         game.ReplicatedFirst.TourneyQ:Destroy()
     end,
 })
@@ -159,7 +142,7 @@ local Button = Tab:CreateButton({
         l.GlobalShadows = false
         l.FogEnd = 9e9
         l.Brightness = 0
-        settings().Rendering.QualityLevel = "Level01"
+        settings().Rendering.QualityLevel = "Level05"
         for i,v in pairs(g:GetDescendants()) do
            if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
                v.Material = "Plastic"
@@ -190,9 +173,6 @@ local Button = Tab:CreateButton({
         end)        
 	end,
 })
-
-local TabP = Window:NewTab("PlayerMoudles")
-local SectionP = TabP:NewSection("PlayerMoudles")
 local Slider = TabP:CreateSlider({
 	Name = "Speed",
 	Range = {1, 100},
