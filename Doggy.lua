@@ -1,8 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
-	Name = "Doggy Hub V1 | Auberon_Code / Auberon_Altas",
+	Name = "Doggy Hub V1 | Private Farm",
 	LoadingTitle = "Doggy Hub V1",
-	LoadingSubtitle = "by Auberon",
+	LoadingSubtitle = "by Auberon_Altas",
 	ConfigurationSaving = {
 		Enabled = true,
 		FolderName = nil, 
@@ -16,7 +16,7 @@ local Window = Rayfield:CreateWindow({
 	KeySystem = true, 
 	KeySettings = {
 		Title = "Doggy Hub",
-		Subtitle = "Key System",
+		Subtitle = "Key System | Made by Auberon_Code / Auberon_Altas",
 		Note = "Join the discord (https://discord.gg/z87EdW886z)",
 		FileName = "DoggyIncrytion",
 		SaveKey = true,
@@ -37,7 +37,7 @@ Rayfield:Notify({
 		},
 	},
 })
-local Tab = Window:CreateTab("Farming")
+local Tab = Window:CreateTab("Main")
 local Section = Tab:CreateSection("Farming")
 local Toggle = Tab:CreateToggle({
 	Name = "Equip Dw",
@@ -188,6 +188,21 @@ local Button = Tab:CreateButton({
         vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
         wait(1)
         end)        
+	end,
+})
+
+local TabP = Window:NewTab("PlayerMoudles")
+local SectionP = PlayerMoudles:NewSection("PlayerMoudles")
+local Slider = Tab:CreateSlider({
+	Name = "Speed",
+	Range = {1, 100},
+	Increment = 10,
+	Suffix = "Speed",
+	CurrentValue = 16,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		-- The function that takes place when the slider changes
+    		-- The variable (Value) is a number which correlates to the value the slider is currently at
 	end,
 })
 Rayfield:LoadConfiguration()
