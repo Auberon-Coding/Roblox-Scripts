@@ -2,24 +2,25 @@
 -- Version: 3.2
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local Gained = Instance.new("ScreenGui")
 local TextLabel = Instance.new("TextLabel")
 local UIGradient = Instance.new("UIGradient")
 local UICorner = Instance.new("UICorner")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Gained.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Gained.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Gained.Name = "Gained"
 
-TextLabel.Parent = ScreenGui
+TextLabel.Parent = Gained
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.Position = UDim2.new(0.7578125, 0, 0.306242645, 0)
 TextLabel.Size = UDim2.new(0, 300, 0, 100)
 TextLabel.Font = Enum.Font.DenkOne
-TextLabel.Text = "Earned"
+TextLabel.Text = "Gained"
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 27.000
+TextLabel.TextScaled = true
 TextLabel.TextWrapped = true
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(0.02, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(110, 209, 255))}
@@ -40,7 +41,7 @@ local function LRZVYLO_fake_script() -- TextLabel.Earned
 	str:GetPropertyChangedSignal("Value"):Connect(function()
 		local delta = (str.Value - curvalue);
 		earned += delta;
-		script.Parent.Text = "Earned: "..earned;
+		script.Parent.Text = "Gained: "..earned;
 		curvalue = str.Value;
 	end)
 end
