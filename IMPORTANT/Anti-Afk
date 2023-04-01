@@ -1,0 +1,140 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local AntiAfk = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local SubTitle = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local UICorner = Instance.new("UICorner")
+local Success = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+local Success_2 = Instance.new("TextLabel")
+
+--Properties:
+
+AntiAfk.Name = "AntiAfk"
+AntiAfk.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AntiAfk.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AntiAfk.ResetOnSpawn = false
+
+Frame.Parent = AntiAfk
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.729403496, 0, 0.129564196, 0)
+Frame.Active = true
+Frame.Draggable = true
+Frame.Size = UDim2.new(0, 363, 0, 207)
+
+SubTitle.Name = "Sub-Title"
+SubTitle.Parent = Frame
+SubTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SubTitle.BackgroundTransparency = 1.000
+SubTitle.BorderSizePixel = 0
+SubTitle.Position = UDim2.new(0.118457302, 0, 0.289855063, 0)
+SubTitle.Size = UDim2.new(0, 261, 0, 32)
+SubTitle.Font = Enum.Font.DenkOne
+SubTitle.Text = "Anti Afk"
+SubTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+SubTitle.TextScaled = true
+SubTitle.TextSize = 14.000
+SubTitle.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SubTitle.TextStrokeTransparency = 0.000
+SubTitle.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(0.02, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(110, 209, 255))}
+UIGradient.Offset = Vector2.new(0.5, 0)
+UIGradient.Rotation = -195.5
+UIGradient.Parent = Frame
+
+UICorner.Parent = Frame
+
+Success.Name = "Success"
+Success.Parent = Frame
+Success.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Success.BackgroundTransparency = 1.000
+Success.BorderSizePixel = 0
+Success.Position = UDim2.new(0.118457302, 0, 0.536231875, 0)
+Success.Size = UDim2.new(0, 261, 0, 50)
+Success.Font = Enum.Font.DenkOne
+Success.Text = "Success"
+Success.TextColor3 = Color3.fromRGB(0, 0, 0)
+Success.TextScaled = true
+Success.TextSize = 14.000
+Success.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Success.TextStrokeTransparency = 0.000
+Success.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Size = UDim2.new(0, 363, 0, 44)
+Title.Font = Enum.Font.DenkOne
+Title.Text = "Moon Chicory"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextStrokeTransparency = 0.000
+Title.TextWrapped = true
+
+Success_2.Name = "Success"
+Success_2.Parent = Frame
+Success_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Success_2.BackgroundTransparency = 1.000
+Success_2.BorderSizePixel = 0
+Success_2.Position = UDim2.new(0, 0, 0.850241542, 0)
+Success_2.Size = UDim2.new(0, 363, 0, 31)
+Success_2.Font = Enum.Font.DenkOne
+Success_2.Text = "Made By Auberon_Altas / Auberon_Altas#5542"
+Success_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Success_2.TextScaled = true
+Success_2.TextSize = 14.000
+Success_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Success_2.TextStrokeTransparency = 0.000
+Success_2.TextWrapped = true
+
+-- Scripts:
+
+local function TJKXIYU_fake_script() -- SubTitle.Sub-TitleScript 
+	local script = Instance.new('LocalScript', SubTitle)
+
+	local plr = game:GetService("Players").LocalPlayer
+	
+	script.Parent.Text = "Anti-Afk (".. plr.Name ..")"
+end
+coroutine.wrap(TJKXIYU_fake_script)()
+local function MLVV_fake_script() -- Title.TitleScript 
+	local script = Instance.new('LocalScript', Title)
+
+	local function checkIfOwner(plr)
+		if game.Players.LocalPlayer.UserId == 706473811 then
+			Title.Text = "Welcome, ".. game.Players.LocalPlayer.Name .."!"
+			wait(2)
+			Title.Text = "Moon Chicory | Owner"
+		else
+			Title.Text = "Welcome, ".. game.Players.LocalPlayer.Name .."!"
+			wait(2)
+			Title.Text = "Moon Chicory | Normal"
+		end
+	end
+	
+	game.Players.PlayerAdded:Connect(checkIfOwner())
+end
+coroutine.wrap(MLVV_fake_script)()
+local function KBWOU_fake_script() -- Frame.SuccessScript 
+	local script = Instance.new('LocalScript', Frame)
+	
+	local VU = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:Connect(function()
+		VU:CaptureController()
+		VU:ClickButton2(Vector2.new())
+		Success.Text = "Roblox Tried To Kick You, (".. game.Players.LocalPlayer.Name ..") But We Stopped Em"
+		wait(2)
+		Success.Text = "Status : Active"
+	end)
+end
+coroutine.wrap(KBWOU_fake_script)()
