@@ -1,0 +1,114 @@
+    -- Gui to Lua
+    -- Version: 3.2
+
+    -- Instances:
+
+    local PremiumPurchase = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local Buy = Instance.new("TextButton")
+    local UICorner = Instance.new("UICorner")
+    local UICorner_2 = Instance.new("UICorner")
+    local Title = Instance.new("TextLabel")
+    local UICorner_3 = Instance.new("UICorner")
+    local Bio = Instance.new("TextLabel")
+    local UICorner_4 = Instance.new("UICorner")
+    local Close = Instance.new("TextButton")
+    local UICorner_5 = Instance.new("UICorner")
+
+    --Properties:
+
+    PremiumPurchase.Name = "PremiumPurchase"
+    PremiumPurchase.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    PremiumPurchase.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    PremiumPurchase.ResetOnSpawn = false
+
+    Frame.Parent = PremiumPurchase
+    Frame.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+    Frame.BorderSizePixel = 0
+    Frame.Position = UDim2.new(0.367897719, 0, 0.272084832, 0)
+    Frame.Active = true
+    Frame.Draggable = true
+    Frame.Size = UDim2.new(0, 371, 0, 387)
+
+    Buy.Name = "Buy"
+    Buy.Parent = Frame
+    Buy.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+    Buy.BorderSizePixel = 0
+    Buy.Position = UDim2.new(0.231805936, 0, 0.732778192, 0)
+    Buy.Size = UDim2.new(0, 200, 0, 50)
+    Buy.Font = Enum.Font.DenkOne
+    Buy.Text = "Buy Premium"
+    Buy.TextColor3 = Color3.fromRGB(100, 100, 100)
+    Buy.TextScaled = true
+    Buy.TextSize = 14.000
+    Buy.TextWrapped = true
+
+    UICorner.Parent = Buy
+
+    UICorner_2.Parent = Frame
+
+    Title.Name = "Title"
+    Title.Parent = Frame
+    Title.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+    Title.BorderSizePixel = 0
+    Title.Size = UDim2.new(0, 371, 0, 60)
+    Title.Font = Enum.Font.DenkOne
+    Title.Text = "Premium"
+    Title.TextColor3 = Color3.fromRGB(100, 100, 100)
+    Title.TextScaled = true
+    Title.TextSize = 14.000
+    Title.TextWrapped = true
+
+    UICorner_3.Parent = Title
+
+    Bio.Name = "Bio"
+    Bio.Parent = Frame
+    Bio.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+    Bio.BorderSizePixel = 0
+    Bio.Position = UDim2.new(0, 0, 0.284237713, 0)
+    Bio.Size = UDim2.new(0, 371, 0, 78)
+    Bio.Font = Enum.Font.DenkOne
+    Bio.Text = "You Can Buy Premium By Clicking The Button Below"
+    Bio.TextColor3 = Color3.fromRGB(100, 100, 100)
+    Bio.TextScaled = true
+    Bio.TextSize = 14.000
+    Bio.TextWrapped = true
+
+    UICorner_4.Parent = Bio
+
+    Close.Name = "Close"
+    Close.Parent = Frame
+    Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Close.BackgroundTransparency = 1.000
+    Close.Position = UDim2.new(0.911051214, 0, 0, 0)
+    Close.Size = UDim2.new(0, 33, 0, 36)
+    Close.Font = Enum.Font.DenkOne
+    Close.Text = "X"
+    Close.TextColor3 = Color3.fromRGB(100, 100, 100)
+    Close.TextScaled = true
+    Close.TextSize = 14.000
+    Close.TextWrapped = true
+
+    UICorner_5.Parent = Close
+
+    -- Scripts:
+
+    local function NGGYHID_fake_script() -- Buy.LocalScript 
+        local script = Instance.new('LocalScript', Buy)
+
+        local Market = game:GetService("MarketplaceService")
+        local plr = game:GetService('Players').LocalPlayer
+        
+        Buy.MouseButton1Click:Connect(function()
+            Market:PromptPurchase(plr, 156149716)
+        end)
+    end
+    coroutine.wrap(NGGYHID_fake_script)()
+    local function HYAR_fake_script() -- Close.Script 
+        local script = Instance.new('Script', Close)
+
+        Close.MouseButton1Click:Connect(function()
+            Frame.Visible = false
+        end)
+    end
+    coroutine.wrap(HYAR_fake_script)()
