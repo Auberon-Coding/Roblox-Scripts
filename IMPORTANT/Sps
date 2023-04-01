@@ -1,0 +1,325 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Sps = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ForUI = Instance.new("Folder")
+local Numbers = Instance.new("Folder")
+local Sps4 = Instance.new("TextLabel")
+local Sps3 = Instance.new("TextLabel")
+local Sps2 = Instance.new("TextLabel")
+local Sps1 = Instance.new("TextLabel")
+local Border1 = Instance.new("Frame")
+local Border2 = Instance.new("Frame")
+local Border3 = Instance.new("Frame")
+local Border4 = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Sec = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+local Minute = Instance.new("TextLabel")
+local Hour = Instance.new("TextLabel")
+local Day = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+
+--Properties:
+
+Sps.Name = "Sps"
+Sps.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Sps.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Sps
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(-0.000710189342, 0, 0.129564196, 0)
+Frame.Active = true
+Frame.Draggable = true
+Frame.Size = UDim2.new(0, 566, 0, 186)
+
+ForUI.Name = "ForUI"
+ForUI.Parent = Frame
+
+Numbers.Name = "Numbers"
+Numbers.Parent = ForUI
+
+Sps4.Name = "Sps4"
+Sps4.Parent = Numbers
+Sps4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Sps4.BackgroundTransparency = 1.000
+Sps4.BorderColor3 = Color3.fromRGB(0, 0, 255)
+Sps4.Position = UDim2.new(0.776265502, 0, 0.72422868, 0)
+Sps4.Size = UDim2.new(0, 126, 0, 30)
+Sps4.Font = Enum.Font.DenkOne
+Sps4.Text = "Per Day"
+Sps4.TextColor3 = Color3.fromRGB(0, 0, 0)
+Sps4.TextScaled = true
+Sps4.TextSize = 14.000
+Sps4.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Sps4.TextStrokeTransparency = 0.000
+Sps4.TextWrapped = true
+
+Sps3.Name = "Sps3"
+Sps3.Parent = Numbers
+Sps3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Sps3.BackgroundTransparency = 1.000
+Sps3.BorderColor3 = Color3.fromRGB(0, 0, 255)
+Sps3.Position = UDim2.new(0.523615301, 0, 0.72422868, 0)
+Sps3.Size = UDim2.new(0, 120, 0, 30)
+Sps3.Font = Enum.Font.DenkOne
+Sps3.Text = "Per Hour"
+Sps3.TextColor3 = Color3.fromRGB(0, 0, 0)
+Sps3.TextScaled = true
+Sps3.TextSize = 14.000
+Sps3.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Sps3.TextStrokeTransparency = 0.000
+Sps3.TextWrapped = true
+
+Sps2.Name = "Sps2"
+Sps2.Parent = Numbers
+Sps2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Sps2.BackgroundTransparency = 1.000
+Sps2.BorderColor3 = Color3.fromRGB(0, 0, 255)
+Sps2.Position = UDim2.new(0.25506407, 0, 0.729605019, 0)
+Sps2.Size = UDim2.new(0, 129, 0, 29)
+Sps2.Font = Enum.Font.DenkOne
+Sps2.Text = "Per Minute"
+Sps2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Sps2.TextScaled = true
+Sps2.TextSize = 14.000
+Sps2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Sps2.TextStrokeTransparency = 0.000
+Sps2.TextWrapped = true
+
+Sps1.Name = "Sps1"
+Sps1.Parent = Numbers
+Sps1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Sps1.BackgroundTransparency = 1.000
+Sps1.BorderColor3 = Color3.fromRGB(0, 0, 255)
+Sps1.Position = UDim2.new(0, 0, 0.729605019, 0)
+Sps1.Size = UDim2.new(0, 121, 0, 29)
+Sps1.Font = Enum.Font.DenkOne
+Sps1.Text = "Per Second"
+Sps1.TextColor3 = Color3.fromRGB(0, 0, 0)
+Sps1.TextScaled = true
+Sps1.TextSize = 14.000
+Sps1.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Sps1.TextStrokeTransparency = 0.000
+Sps1.TextWrapped = true
+
+Border1.Name = "Border1"
+Border1.Parent = ForUI
+Border1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border1.BorderSizePixel = 0
+Border1.Position = UDim2.new(0.214428037, 0, 0.204301074, 0)
+Border1.Size = UDim2.new(0, 23, 0, 147)
+
+Border2.Name = "Border2"
+Border2.Parent = ForUI
+Border2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border2.BorderSizePixel = 0
+Border2.Position = UDim2.new(0.479445696, 0, 0.204301074, 0)
+Border2.Size = UDim2.new(0, 23, 0, 147)
+
+Border3.Name = "Border3"
+Border3.Parent = ForUI
+Border3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border3.BorderSizePixel = 0
+Border3.Position = UDim2.new(0.735629439, 0, 0.203357175, 0)
+Border3.Size = UDim2.new(0, 23, 0, 146)
+
+Border4.Name = "Border4"
+Border4.Parent = ForUI
+Border4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border4.BorderSizePixel = 0
+Border4.Position = UDim2.new(-0.0011196608, 0, 0.204301074, 0)
+Border4.Size = UDim2.new(0, 566, 0, 14)
+
+UICorner.Parent = Frame
+
+Sec.Name = "Sec"
+Sec.Parent = Frame
+Sec.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Sec.BackgroundTransparency = 1.000
+Sec.BorderSizePixel = 0
+Sec.Position = UDim2.new(0, 0, 0.417004466, 0)
+Sec.Size = UDim2.new(0, 121, 0, 29)
+Sec.Font = Enum.Font.DenkOne
+Sec.Text = "Per Second"
+Sec.TextColor3 = Color3.fromRGB(0, 0, 0)
+Sec.TextScaled = true
+Sec.TextSize = 14.000
+Sec.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Sec.TextStrokeTransparency = 0.000
+Sec.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.302767277, 0, 0, 0)
+Title.Size = UDim2.new(0, 222, 0, 37)
+Title.Font = Enum.Font.DenkOne
+Title.Text = "Moon Chicory Sps"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextStrokeTransparency = 0.000
+Title.TextWrapped = true
+
+Minute.Name = "Minute"
+Minute.Parent = Frame
+Minute.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Minute.BackgroundTransparency = 1.000
+Minute.BorderSizePixel = 0
+Minute.Position = UDim2.new(0.25506407, 0, 0.417004466, 0)
+Minute.Size = UDim2.new(0, 129, 0, 29)
+Minute.Font = Enum.Font.DenkOne
+Minute.Text = "Per Minute"
+Minute.TextColor3 = Color3.fromRGB(0, 0, 0)
+Minute.TextScaled = true
+Minute.TextSize = 14.000
+Minute.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Minute.TextStrokeTransparency = 0.000
+Minute.TextWrapped = true
+
+Hour.Name = "Hour"
+Hour.Parent = Frame
+Hour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hour.BackgroundTransparency = 1.000
+Hour.BorderSizePixel = 0
+Hour.Position = UDim2.new(0.520081758, 0, 0.417004466, 0)
+Hour.Size = UDim2.new(0, 122, 0, 30)
+Hour.Font = Enum.Font.DenkOne
+Hour.Text = "Per Hour"
+Hour.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hour.TextScaled = true
+Hour.TextSize = 14.000
+Hour.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Hour.TextStrokeTransparency = 0.000
+Hour.TextWrapped = true
+
+Day.Name = "Day"
+Day.Parent = Frame
+Day.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Day.BackgroundTransparency = 1.000
+Day.BorderSizePixel = 0
+Day.Position = UDim2.new(0.776265502, 0, 0.417616129, 0)
+Day.Size = UDim2.new(0, 126, 0, 30)
+Day.Font = Enum.Font.DenkOne
+Day.Text = "Per Day"
+Day.TextColor3 = Color3.fromRGB(0, 0, 0)
+Day.TextScaled = true
+Day.TextSize = 14.000
+Day.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+Day.TextStrokeTransparency = 0.000
+Day.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(0.02, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(110, 209, 255))}
+UIGradient.Offset = Vector2.new(0.5, 0)
+UIGradient.Rotation = -195.5
+UIGradient.Parent = Frame
+
+-- Scripts:
+
+local function IMXTEGP_fake_script() -- Sps4.LocalScript 
+	local script = Instance.new('LocalScript', Sps4)
+
+	local w = game:GetService("Players").LocalPlayer.leaderstats.Strength
+	local x = w.Value
+	local y = 0
+	local z = 0
+	while true do
+		x = w.Value
+		wait(86400)
+		y = w.Value
+		z = y - x
+		Sps4.Text = z
+	end
+end
+coroutine.wrap(IMXTEGP_fake_script)()
+local function FTVHL_fake_script() -- Sps3.LocalScript 
+	local script = Instance.new('LocalScript', Sps3)
+
+	local w = game:GetService("Players").LocalPlayer.leaderstats.Strength
+	local x = w.Value
+	local y = 0
+	local z = 0
+	while true do
+		x = w.Value
+		wait(3600)
+		y = w.Value
+		z = y - x
+		Sps3.Text = z
+	end
+end
+coroutine.wrap(FTVHL_fake_script)()
+local function CWVY_fake_script() -- Sps2.LocalScript 
+	local script = Instance.new('LocalScript', Sps2)
+
+	local w = game:GetService("Players").LocalPlayer.leaderstats.Strength
+	local x = w.Value
+	local y = 0
+	local z = 0
+	while true do
+		x = w.Value
+		wait(60)
+		y = w.Value
+		z = y - x
+		Sps2.Text = z
+	end
+end
+coroutine.wrap(CWVY_fake_script)()
+local function LXTSJRJ_fake_script() -- Sps1.LocalScript 
+	local script = Instance.new('LocalScript', Sps1)
+
+	local w = game:GetService("Players").LocalPlayer.leaderstats.Strength
+	local x = w.Value
+	local y = 0
+	local z = 0
+	while true do
+		x = w.Value
+		wait(1)
+		y = w.Value
+		z = y - x
+		Sps1.Text = z
+	end
+end
+coroutine.wrap(LXTSJRJ_fake_script)()
+local function ELFQ_fake_script() -- Numbers.LocalScript 
+	local script = Instance.new('LocalScript', Numbers)
+
+	local w = game:GetService("Players").LocalPlayer.leaderstats.Strength
+	local x = w.Value
+	local y = 0
+	local z = 0
+	while true do
+		x = w.Value
+		wait(1)
+		y = w.Value
+		z = y - x
+		Sps1.Text = z
+		Sps2.Text = z * 60
+		Sps3.Text = z * 3600
+		Sps4.Text = z * 86400
+	end
+end
+coroutine.wrap(ELFQ_fake_script)()
+local function REQQQA_fake_script() -- Title.LocalScript 
+	local script = Instance.new('LocalScript', Title)
+	
+	game.Players.PlayerAdded:Connect(function()
+		if game.Players.LocalPlayer.UserId == 706473811 then
+			Title.Text = "Welcome, Auberon_Altas!"
+			wait(2)
+			Title.Text = "Moon Chicory Sps | Owner"
+		else
+      Title.Text = "Welcome, ".. game.Players.LocalPlayer.Name .."!"
+			wait(2)
+			Title.Text = "Moon Chicory Sps | Normal"
+		end
+	end)
+end
+coroutine.wrap(REQQQA_fake_script)()

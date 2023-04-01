@@ -1,4 +1,0 @@
-userids = {
-[2038347081] = true, -- MCG904YT
-}
-return userids
