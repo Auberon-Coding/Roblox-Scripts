@@ -1,0 +1,161 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local StrengthSpy = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local Bio = Instance.new("TextLabel")
+local User = Instance.new("TextBox")
+local UserC = Instance.new("UICorner")
+local FrameC = Instance.new("UICorner")
+local Check = Instance.new("TextButton")
+local CheckC = Instance.new("UICorner")
+local ImageLabel = Instance.new("ImageLabel")
+
+--Properties:
+
+StrengthSpy.Name = "StrengthSpy"
+StrengthSpy.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+StrengthSpy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = StrengthSpy
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.389914781, 0, 0.292108357, 0)
+Frame.Size = UDim2.new(0, 309, 0, 368)
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(0, 309, 0, 57)
+Title.Font = Enum.Font.DenkOne
+Title.Text = "Moon Chicory"
+Title.TextColor3 = Color3.fromRGB(100, 100, 100)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextStrokeTransparency = 0.000
+Title.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 163, 15)), ColorSequenceKeypoint.new(0.27, Color3.fromRGB(255, 163, 15)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient.Parent = Frame
+
+Bio.Name = "Bio"
+Bio.Parent = Frame
+Bio.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Bio.BackgroundTransparency = 1.000
+Bio.Position = UDim2.new(0, 0, 0.245676875, 0)
+Bio.Size = UDim2.new(0, 309, 0, 36)
+Bio.Font = Enum.Font.DenkOne
+Bio.Text = "Strength Spy"
+Bio.TextColor3 = Color3.fromRGB(100, 100, 100)
+Bio.TextScaled = true
+Bio.TextSize = 14.000
+Bio.TextStrokeTransparency = 0.000
+Bio.TextWrapped = true
+
+User.Name = "User"
+User.Parent = Frame
+User.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+User.BorderSizePixel = 0
+User.Position = UDim2.new(0.0970873758, 0, 0.461585999, 0)
+User.Size = UDim2.new(0, 250, 0, 55)
+User.Font = Enum.Font.DenkOne
+User.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
+User.PlaceholderText = "Username"
+User.Text = ""
+User.TextColor3 = Color3.fromRGB(0, 0, 0)
+User.TextScaled = true
+User.TextSize = 14.000
+User.TextStrokeTransparency = 0.000
+User.TextWrapped = true
+
+UserC.Name = "UserC"
+UserC.Parent = User
+
+FrameC.Name = "FrameC"
+FrameC.Parent = Frame
+
+Check.Name = "Check"
+Check.Parent = Frame
+Check.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Check.Position = UDim2.new(0.0938511267, 0, 0.696516812, 0)
+Check.Size = UDim2.new(0, 250, 0, 50)
+Check.Font = Enum.Font.DenkOne
+Check.Text = "Check"
+Check.TextColor3 = Color3.fromRGB(100, 100, 100)
+Check.TextScaled = true
+Check.TextSize = 14.000
+Check.TextStrokeTransparency = 0.000
+Check.TextWrapped = true
+
+CheckC.Name = "CheckC"
+CheckC.Parent = Check
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.805825233, 0, 0.834980249, 0)
+ImageLabel.Size = UDim2.new(0, 60, 0, 60)
+ImageLabel.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+-- Scripts:
+
+local function HMSOWH_fake_script() -- Title.LocalScript 
+	local script = Instance.new('LocalScript', Title)
+
+	local function checkIfOwner()
+		if game.Players.LocalPlayer.UserId == 706473811 then
+			Title.Text = "Welcome, ".. game.Players.LocalPlayer.Name .."!"
+			wait(2)
+			Title.Text = "Moon Chicory | Owner"
+		else
+			Title.Text = "Welcome, ".. game.Players.LocalPlayer.Name .."!"
+			wait(2)
+			Title.Text = "Moon Chicory | Normal"
+		end
+	end
+	
+	game.Players.PlayerAdded:Connect(checkIfOwner())
+end
+coroutine.wrap(HMSOWH_fake_script)()
+local function ULON_fake_script() -- Check.LocalScript 
+	local script = Instance.new('LocalScript', Check)
+
+	script.Parent.MouseButton1Up:Connect(function()
+		while true do           
+			Bio.Text = [User.Text] .."|".. game.ReplicatedStorage.Data[User.Text].Strength.Value
+			wait()
+		end
+	end)
+end
+coroutine.wrap(ULON_fake_script)()
+local function AWVTJUJ_fake_script() -- ImageLabel.LocalScript 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	local Plrs = game:GetService("Players")
+	
+	local plr = Plrs.LocalPlayer
+	
+	local userId = plr.UserId
+	local thumbType = Enum.ThumbnailType.HeadShot
+	local thumbSize = Enum.ThumbnailSize.Size60x60
+	local content,isReady = Plrs:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	
+	
+	
+	local imageLabel = script.Parent
+	imageLabel.Image = content
+end
+coroutine.wrap(AWVTJUJ_fake_script)()
+local function SFDD_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(SFDD_fake_script)()
