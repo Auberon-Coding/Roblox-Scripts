@@ -1,0 +1,56 @@
+-- Gui to Lua
+-- Version: 3.2
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Position = UDim2.new(0.7578125, 0, 0.306242645, 0)
+TextLabel.Size = UDim2.new(0, 300, 0, 100)
+TextLabel.Font = Enum.Font.DenkOne
+TextLabel.Text = "Earned"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 27.000
+TextLabel.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(0.02, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(110, 209, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(110, 209, 255))}
+UIGradient.Offset = Vector2.new(0.5, 0)
+UIGradient.Rotation = -195.5
+UIGradient.Parent = TextLabel
+UICorner.Parent = TextLabel
+
+-- Scripts:
+
+local function LRZVYLO_fake_script() -- TextLabel.Earned 
+
+	local script = Instance.new('Script', TextLabel)
+  
+	local str = game:GetService("Players").LocalPlayer.leaderstats.Strength;
+	local curvalue = str.Value;
+	local earned = 0;
+	str:GetPropertyChangedSignal("Value"):Connect(function()
+		local delta = (str.Value - curvalue);
+		earned += delta;
+		script.Parent.Text = "Earned: "..earned;
+		curvalue = str.Value;
+	end)
+end
+coroutine.wrap(LRZVYLO_fake_script)()
+
+local function PYTFMM_fake_script() -- TextLabel.Gradient 
+
+	local script = Instance.new('Script', TextLabel)
+
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(PYTFMM_fake_script)()
