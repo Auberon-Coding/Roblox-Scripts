@@ -1,0 +1,103 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local Rebirths = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 0.500
+Frame.Position = UDim2.new(0.454092473, 0, 0.134275615, 0)
+Frame.Size = UDim2.new(0, 240, 0, 167)
+
+UICorner.Parent = Frame
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.Position = UDim2.new(0, 0, 0.623308539, 0)
+TextButton.Size = UDim2.new(0, 240, 0, 62)
+TextButton.Font = Enum.Font.DenkOne
+TextButton.Text = "Check Reb"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UICorner_2.Parent = TextButton
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(0, 240, 0, 50)
+Title.Font = Enum.Font.DenkOne
+Title.Text = "Zaza Hub | Normal"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Rebirths.Name = "Rebirths"
+Rebirths.Parent = Frame
+Rebirths.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rebirths.BackgroundTransparency = 1.000
+Rebirths.Position = UDim2.new(0, 0, 0.293413162, 0)
+Rebirths.Size = UDim2.new(0, 240, 0, 50)
+Rebirths.Font = Enum.Font.DenkOne
+Rebirths.Text = "Rebirths"
+Rebirths.TextColor3 = Color3.fromRGB(0, 0, 0)
+Rebirths.TextScaled = true
+Rebirths.TextSize = 14.000
+Rebirths.TextWrapped = true
+
+-- Scripts:
+
+local function VYLDTT_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Up:Connect(function()
+		while true do
+			Rebirths.Text = game.Players.LocalPlayer.Leaderstats.Rebirths.Value
+		end
+	end)
+end
+coroutine.wrap(VYLDTT_fake_script)()
+local function CZRUZ_fake_script() -- Title.LocalScript 
+	local script = Instance.new('LocalScript', Title)
+
+	local plr = game:GetService("Players").LocalPlayer
+	local groupRole = plr:GetRoleInGroup(15453934)
+	
+	if plr.UserId == 706473811 or 697937893 then
+		script.Parent.Text = "Welcome, "..plr.Name.."!"
+		wait(3)
+		script.Parent.Text = "Zaza Hub | Owner!"
+	else
+		script.Parent.Text = "Welcome, ".. plr.Name .."!"
+		wait(3)
+		script.Parent.Text = "Zaza Hub | ".. groupRole .. "!"
+	end
+end
+coroutine.wrap(CZRUZ_fake_script)()
+local function JXPMN_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Frame = script.Parent
+	
+	Frame.Selectable = true
+	Frame.Active = true
+	Frame.Draggable = true
+end
+coroutine.wrap(JXPMN_fake_script)()
