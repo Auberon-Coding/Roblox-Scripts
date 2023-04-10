@@ -14,7 +14,7 @@ local Gained = Instance.new("TextLabel")
 
 --Properties:
 
-ScreenGui.Parent = game.StarterGui["BS2"]
+ScreenGui.Parent = game.StarterGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
