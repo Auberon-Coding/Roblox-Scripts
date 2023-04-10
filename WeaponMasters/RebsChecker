@@ -69,7 +69,7 @@ local function VYLDTT_fake_script() -- TextButton.LocalScript
 
 	script.Parent.MouseButton1Up:Connect(function()
 		while true do
-			Rebirths.Text = game.Players.LocalPlayer.Leaderstats.Rebirths.Value
+			Rebirths.Text = game.Players.LocalPlayer.leaderstats.Rebirths.Value
 		end
 	end)
 end
