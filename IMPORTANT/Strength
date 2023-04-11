@@ -1,40 +1,32 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
+local ts = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
 local UIGradient = Instance.new("UIGradient")
-
---Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.Position = UDim2.new(0.627758026, 0, 0.0906949639, 0)
-TextLabel.Size = UDim2.new(0, 233, 0, 73)
-TextLabel.Font = Enum.Font.DenkOne
-TextLabel.Text = "Strength"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
+ts.Name = "ts"
+ts.Parent = ScreenGui
+ts.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ts.Position = UDim2.new(0.627758026, 0, 0.0906949639, 0)
+ts.Size = UDim2.new(0, 233, 0, 73)
+ts.Font = Enum.Font.DenkOne
+ts.Text = "Strength"
+ts.TextColor3 = Color3.fromRGB(0, 0, 0)
+ts.TextScaled = true
+ts.TextSize = 14.000
+ts.TextWrapped = true
 
-UICorner.Parent = TextLabel
+UICorner.Parent = ts
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(112, 212, 255)), ColorSequenceKeypoint.new(0.02, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.98, Color3.fromRGB(112, 212, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(112, 212, 255))}
 UIGradient.Offset = Vector2.new(0.5, 0)
 UIGradient.Rotation = -195.5
-UIGradient.Parent = TextLabel
+UIGradient.Parent = ts
 
--- Scripts:
-
-local function UXOAX_fake_script() -- TextLabel.Numbers 
-	local script = Instance.new('LocalScript', TextLabel)
+local function OFGK_fake_script() -- ts.Numbers 
+	local script = Instance.new('LocalScript', ts)
 
 	local l = true
 	
@@ -43,26 +35,30 @@ local function UXOAX_fake_script() -- TextLabel.Numbers
 		local playerName = player.Name
 		wait(0.5)
 	
-		local str = game.Players.LocalPlayer.leaderstats.Strength;
-		local formattedEarned = str.Value;
-		local earned = 0;
-		str:GetPropertyChangedSignal("Value"):Connect(function()
-			local delta = (str.Value - curvalue);
-			earned += delta;
-			TextLabel.Text = ""..earned;
-			curvalue = str.Value;
-		end)
+		local strength = game.ReplicatedStorage.Data[playerName].Strength.Value
+		local formattedStrength = strength
 	
-		if formattedEarned >= 1e12 then
-			formattedEarned = string.format("%.2fT", formattedEarned / 1e12)
-		elseif formattedEarned >= 1e9 then
-			formattedEarned = string.format("%.2fB", formattedEarned / 1e9)
-		elseif formattedEarned >= 1e6 then
-			formattedEarned  = string.format("%.2fM", formattedEarned / 1e6)
-		elseif formattedEarned >= 1e3 then
-			formattedEarned = string.format("%.2fK", formattedEarned / 1e3)
+		if formattedStrength >= 1e12 then
+			formattedStrength = string.format("%.2fT", formattedStrength / 1e12)
+		elseif formattedStrength >= 1e9 then
+			formattedStrength = string.format("%.2fB", formattedStrength / 1e9)
+		elseif formattedStrength >= 1e6 then
+			formattedStrength = string.format("%.2fM", formattedStrength / 1e6)
+		elseif formattedStrength >= 1e3 then
+			formattedStrength = string.format("%.2fK", formattedStrength / 1e3)
 		end
 	
-		TextLabel.Text = formattedEarned 
+		ts.Text = formattedStrength
 	end
 end
+coroutine.wrap(OFGK_fake_script)()
+local function EWBRKWK_fake_script() -- ScreenGui.Drag 
+	local script = Instance.new('LocalScript', ScreenGui)
+
+	local Label = script.Parent.TextLabel
+	
+	Label.Selectable = true
+	Label.Active = true
+	Label.Draggable = true
+end
+coroutine.wrap(EWBRKWK_fake_script)()
