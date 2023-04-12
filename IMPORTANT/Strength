@@ -17,6 +17,8 @@ ts.TextColor3 = Color3.fromRGB(0, 0, 0)
 ts.TextScaled = true
 ts.TextSize = 14.000
 ts.TextWrapped = true
+ts.Active = true
+ts.Draggable = true
 
 UICorner.Parent = ts
 
@@ -25,40 +27,25 @@ UIGradient.Offset = Vector2.new(0.5, 0)
 UIGradient.Rotation = -195.5
 UIGradient.Parent = ts
 
-local function OFGK_fake_script() -- ts.Numbers 
-	local script = Instance.new('LocalScript', ts)
+local l = true
 
-	local l = true
-	
-	while(l==true) do 
-		local player = game:GetService("Players").LocalPlayer
-		local playerName = player.Name
-		wait(0.5)
-	
-		local strength = game.ReplicatedStorage.Data[playerName].Strength.Value
-		local formattedStrength = strength
-	
-		if formattedStrength >= 1e12 then
-			formattedStrength = string.format("%.2fT", formattedStrength / 1e12)
-		elseif formattedStrength >= 1e9 then
-			formattedStrength = string.format("%.2fB", formattedStrength / 1e9)
-		elseif formattedStrength >= 1e6 then
-			formattedStrength = string.format("%.2fM", formattedStrength / 1e6)
-		elseif formattedStrength >= 1e3 then
-			formattedStrength = string.format("%.2fK", formattedStrength / 1e3)
-		end
-	
-		ts.Text = formattedStrength
-	end
-end
-coroutine.wrap(OFGK_fake_script)()
-local function EWBRKWK_fake_script() -- ScreenGui.Drag 
-	local script = Instance.new('LocalScript', ScreenGui)
+    while(l==true) do 
+        local player = game:GetService("Players").LocalPlayer
+        local playerName = player.Name
+        wait(0.5)
 
-	local Label = script.Parent.TextLabel
-	
-	Label.Selectable = true
-	Label.Active = true
-	Label.Draggable = true
-end
-coroutine.wrap(EWBRKWK_fake_script)()
+        local strength = game.ReplicatedStorage.Data[playerName].Strength.Value
+        local formattedStrength = strength
+
+        if formattedStrength >= 1e12 then
+            formattedStrength = string.format("%.2fT", formattedStrength / 1e12)
+        elseif formattedStrength >= 1e9 then
+            formattedStrength = string.format("%.2fB", formattedStrength / 1e9)
+        elseif formattedStrength >= 1e6 then
+            formattedStrength = string.format("%.2fM", formattedStrength / 1e6)
+        elseif formattedStrength >= 1e3 then
+            formattedStrength = string.format("%.2fK", formattedStrength / 1e3)
+        end
+
+        ts.Text = formattedStrength
+    end
