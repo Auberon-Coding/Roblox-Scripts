@@ -1,3 +1,6 @@
+local player = game:GetService("Players").LocalPlayer
+
+
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
 	Name = "Doggy Hub V1 | Private Farm",
@@ -21,21 +24,8 @@ local Window = Rayfield:CreateWindow({
 		FileName = "DoggyIncrytion",
 		SaveKey = true,
 		GrabKeyFromSite = false, 
-		Key = "Dogs Are The Best"
+		Key = "KeyToLife",
 	}
-})
-Rayfield:Notify({
-    Title = "Join The Discord!",
-    Content = "https://discord.gg/z87EdW886z",
-    Duration = 6.5,
-    Actions = { 
-        Ignore = {
-            Name = "Okay!",
-            Callback = function()
-                print("The user tapped Okay!")
-            end
-		},
-	},
 })
 local Tab = Window:CreateTab("Farming")
 local Section = Tab:CreateSection("Farming")
@@ -221,7 +211,7 @@ local Button = Tab:CreateButton({
 	end,
 })
 local Button = Tab:CreateButton({
-	Name = "Hide Invortory",
+	Name = "Hide Inventory",
 	Callback = function()
 		loadstring(game:HttpGet("https://pastebin.com/raw/8W1draqT", true))()
 	end,
@@ -265,106 +255,35 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
 	Name = "Anti Afk",
 	Callback = function()
-        wait(0.5)local ba=Instance.new("ScreenGui")
-        local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
-        local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
-        ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
-        ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
-        ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,304,0,52)
-        ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk Kick Script"ca.TextColor3=Color3.new(0,1,1)
-        ca.TextSize=22;da.Parent=ca
-        da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
-        da.Size=UDim2.new(0,304,0,107)_b.Parent=da
-        _b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
-        _b.Size=UDim2.new(0,304,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by XxSwordmaster_2xX"
-        _b.TextColor3=Color3.new(1,1,1)_b.TextSize=20;ab.Parent=da
-        ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377379,0)
-        ab.Size=UDim2.new(0,304,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Script Started"
-        ab.TextColor3=Color3.new(1,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
-        game:service'Players'.LocalPlayer.Idled:connect(function()
-        bb:CaptureController()bb:ClickButton2(Vector2.new())
-        ab.Text="You went idle and ROBLOX tried to kick you but we reflected it!"wait(2)ab.Text="Script Re-Enabled"end)
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+			wait(1)
+			vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
 	end,
 })
-local Tab = Window:CreateTab("Dropping")
-local Section = Tab:CreateSection("Dropping")
-local Toggle = Tab:CreateToggle({
-	Name = "Equip Dw (For Dropping)",
-	CurrentValue = false,
-	Flag = "Equip Dw1",
-	Callback = function(state)
-		print(state)
-		if state then
-			print("Toggle On")
-		_G.Equip = true
-		while _G.Equip do
-			wait(1.5)
-			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-				if v.Name == "Double Weight" then
-					v.Parent = game.Players.LocalPlayer.Character
-				end
-			end
-		end
-		else
-			print("Toggle Off")
-		_G.Equip = false
-	end
-	end,
+local Tab = Window:CreateTab("Duping")
+local Section = Tab:CreateSection("Duping")
+local Button = Tab:CreateButton({
+	Name = "Dupe Script"
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Auberon-Coding/Roblox-Scripts/main/IMPORTANT/Dupe", true))()
 })
 local Button = Tab:CreateButton({
-	Name = "Auto Reset",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/CjVD4RZN", true))()
-	end,
-})
-local Button = Tab:CreateButton({
-	Name = "Revis Admin",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/pGhYnsxA", true))()
-	end,
-})
-local Button = Tab:CreateButton({
-	Name = "Check Peoples Weights",
-	Callback = function()
-local a=Instance.new("ScreenGui")local b=Instance.new("ImageLabel")local c=Instance.new("TextLabel")local d=Instance.new("UIGradient")local e=Instance.new("TextLabel")local f=Instance.new("TextBox")local g=Instance.new("TextBox")local h=Instance.new("TextLabel")local i=Instance.new("TextButton")a.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui")a.ResetOnSpawn=false;b.Name="Frame"b.Parent=a;b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BackgroundTransparency=1.000;b.Position=UDim2.new(0.322903633,0,0.234592453,0)b.Size=UDim2.new(0,121,0,198)b.Image="rbxassetid://3570695787"b.ScaleType=Enum.ScaleType.Slice;b.SliceCenter=Rect.new(100,100,100,100)b.SliceScale=0.120;b.Active=true;b.Draggable=true;c.Name="creds"c.Parent=b;c.BackgroundColor3=Color3.fromRGB(255,255,255)c.BackgroundTransparency=1.000;c.Position=UDim2.new(0.0879340023,0,0,0)c.Size=UDim2.new(0,102,0,33)c.Font=Enum.Font.SourceSans;c.Text="01NEWJ"c.TextColor3=Color3.fromRGB(255,255,0)c.TextScaled=true;c.TextSize=14.000;c.TextStrokeTransparency=0.000;c.TextWrapped=true;d.Color=ColorSequence.new{ColorSequenceKeypoint.new(0.00,Color3.fromRGB(238,255,20)),ColorSequenceKeypoint.new(1.00,Color3.fromRGB(34,255,14))}d.Parent=b;e.Name="weightamount"e.Parent=b;e.BackgroundColor3=Color3.fromRGB(255,255,255)e.BackgroundTransparency=1.000;e.Position=UDim2.new(0.0826446265,0,0.482721955,0)e.Size=UDim2.new(0,102,0,40)e.Font=Enum.Font.SourceSans;e.Text=""e.TextColor3=Color3.fromRGB(170,255,0)e.TextSize=18.000;e.TextStrokeTransparency=0.000;e.TextWrapped=true;f.Name="name"f.Parent=b;f.BackgroundColor3=Color3.fromRGB(255,255,255)f.BackgroundTransparency=0.500;f.Position=UDim2.new(0.0879340023,0,0.167464107,0)f.Size=UDim2.new(0,102,0,25)f.Font=Enum.Font.SourceSans;f.Text=""f.TextColor3=Color3.fromRGB(0,0,0)f.TextSize=14.000;f.FocusLost:connect(function()for j,k in pairs(game.Players:GetChildren())do if string.sub(string.lower(k.Name),1,string.len(f.Text))==string.lower(f.Text)then f.Text=k.Name end end end)g.Name="weight"g.Parent=b;g.BackgroundColor3=Color3.fromRGB(255,255,255)g.BackgroundTransparency=0.500;g.Position=UDim2.new(0.0826446265,0,0.325890422,0)g.Size=UDim2.new(0,102,0,25)g.Font=Enum.Font.SourceSans;g.Text="Double Weight"g.TextColor3=Color3.fromRGB(0,0,0)g.TextSize=14.000;g.FocusLost:connect(function()for j,k in pairs(game.Players.LocalPlayer.Backpack:GetChildren())do if string.sub(string.lower(k.Name),1,string.len(g.Text))==string.lower(g.Text)then g.Text=k.Name end end end)h.Name="afk"h.Parent=b;h.BackgroundColor3=Color3.fromRGB(255,255,255)h.BackgroundTransparency=1.000;h.Position=UDim2.new(0.0826446265,0,0.87240833,0)h.Size=UDim2.new(0,102,0,19)h.Font=Enum.Font.SourceSans;h.Text="AFK ACTIVE"h.TextColor3=Color3.fromRGB(255,255,0)h.TextSize=14.000;h.TextStrokeTransparency=0.000;local l=game:service'VirtualUser'game:service'Players'.LocalPlayer.Idled:connect(function()l:CaptureController()l:ClickButton2(Vector2.new())h.Text="afk Confirmed"wait(2)ab.Text="Status : Active"end)i.Name="drop"i.Parent=b;i.BackgroundColor3=Color3.fromRGB(255,255,255)i.Position=UDim2.new(0.0826446265,0,0.717171729,0)i.Size=UDim2.new(0,102,0,24)i.Style=Enum.ButtonStyle.RobloxRoundButton;i.Font=Enum.Font.SourceSansBold;i.Text="Drop"i.TextColor3=Color3.fromRGB(0,0,0)i.TextSize=14.000;i.TextWrapped=true;local m=game.Players.LocalPlayer;local n=game.Players.LocalPlayer;local o=n.Character;local p=n:GetMouse()local q=false;local r=nil;local s=game:GetService('Players').LocalPlayer;function StartFarm()r=true;i.Text="Stop"wait()while r==true do wait(0.5)for j,k in pairs(m.Backpack:GetChildren())do if k.Name==g.Text then k.Parent=m.Character;wait(0.5)if m.Character then if m.Character:FindFirstChild("Humanoid")then m.Character.Humanoid.Name="1"local t=m.Character["1"]:Clone()t.Parent=m.Character;t.Name="Humanoid"wait(0.1)m.Character["1"]:Destroy()workspace.CurrentCamera.CameraSubject=m.Character.Humanoid;m.Character.Animate.Disabled=true;wait(0.1)m.Character.Animate.Disabled=false;s.CharacterAdded:Wait()end end end end end end;function StopFarm()i.Text="Drop"r=false end;i.MouseButton1Click:Connect(function()if q==false then q=true;StartFarm()else q=false;StopFarm()end end)local m=game.Players.LocalPlayer;local o=m.Character;local u=m.Name;coroutine.wrap(function()game:GetService("RunService").RenderStepped:connect(function()if f.Text~=""then game.Workspace[u][g.Text].Handle.CFrame=game:GetService("Workspace")[f.Text].Head.CFrame else end end)end)()coroutine.wrap(function()game:GetService("RunService").RenderStepped:connect(function()local v=0;for j,k in pairs(game.Players[f.Text].Character:GetChildren())do if k.Name==g.Text then v=v+1 else if v==0 then for j,k in pairs(game.Players[f.Text].Backpack:GetChildren())do if k.Name==g.Text then v=v+1 end end end end;e.Text="weight amount \n"..v end end)end)()coroutine.wrap(function()game:GetService("RunService").RenderStepped:connect(function()if f.Text=="delete"then game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()end end)end)()
-	end,
+	Name = "Use to fly and and type del Workspace in cmd bar"
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeroedCode/Executors/main/01newJ%20new"))()
 })
 local Button = Tab:CreateButton({
 	Name = "Anti Afk",
 	Callback = function()
-        wait(0.5)local ba=Instance.new("ScreenGui")
-        local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
-        local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
-        ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
-        ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
-        ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,304,0,52)
-        ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk Kick Script"ca.TextColor3=Color3.new(0,1,1)
-        ca.TextSize=22;da.Parent=ca
-        da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
-        da.Size=UDim2.new(0,304,0,107)_b.Parent=da
-        _b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
-        _b.Size=UDim2.new(0,304,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by XxSwordmaster_2xX"
-        _b.TextColor3=Color3.new(1,1,1)_b.TextSize=20;ab.Parent=da
-        ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377379,0)
-        ab.Size=UDim2.new(0,304,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Script Started"
-        ab.TextColor3=Color3.new(1,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
-        game:service'Players'.LocalPlayer.Idled:connect(function()
-        bb:CaptureController()bb:ClickButton2(Vector2.new())
-        ab.Text="You went idle and ROBLOX tried to kick you but we reflected it!"wait(2)ab.Text="Script Re-Enabled"end)
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+			wait(1)
+			vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
 	end,
 })
 local Tab = Window:CreateTab("Misc")
 local Section = Tab:CreateSection("Misc")
-local Button = Tab:CreateButton({
-	Name = "Small",
-	Callback = function()
-		for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetChildren()) do
-			if v:IsA("NumberValue") then
-				v:Destroy()
-			end
-		end
-	end,
-})
 local Button = Tab:CreateButton({
 	Name = "Day/Night",
 	Callback = function()
@@ -385,12 +304,6 @@ local Button = Tab:CreateButton({
 	Name = "Strength Spy (Credits @KIXEmperorKaidoIX)",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/MidnightScriptz/KaidoSpy/main/loader", true))()
-	end,
-})
-local Button = Tab:CreateButton({
-	Name = "Loop (Credits @KIXEmperorKaidoIX)",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/MidnightScriptz/KingKaidoLoop/main/loader", true))()
 	end,
 })
 local Button = Tab:CreateButton({
