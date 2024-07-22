@@ -1,6 +1,3 @@
-local player = game:GetService("Players").LocalPlayer
-
-
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
 	Name = "Doggy Hub V1 | Private Farm",
