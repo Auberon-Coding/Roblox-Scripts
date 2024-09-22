@@ -1,19 +1,22 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local player = game:GetService("Players").LocalPlayer
+local str = game:GetService("Players").LocalPlayer.leaderstats.Strength
+local Strength = game:GetService("ReplicatedStorage").Data.PlrName.Strength
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local PlrName = Players.LocalPlayer.Name
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-	Name = "Doggy Hub V1 | Private Farm",
-	LoadingTitle = "Doggy Hub V1",
+	Name = "Doggy Hub V3 | Private Farm",
+	LoadingTitle = "Doggy Hub V3",
 	LoadingSubtitle = "by Auberon_Altas",
 	ConfigurationSaving = {
 		Enabled = true,
 		FolderName = nil, 
 		FileName = "Big Hub"
 	},
-        Discord = {
-        	Enabled = false,
-        	Invite = "z87EdW886z", 
-        	RememberJoins = true 
-        },
-	KeySystem = true, 
+	KeySystem = false, 
 	KeySettings = {
 		Title = "Doggy Hub",
 		Subtitle = "Key System | Made by Auberon_Code / Auberon_Altas",
@@ -27,7 +30,7 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Farming")
 local Section = Tab:CreateSection("Farming")
 local Toggle = Tab:CreateToggle({
-	Name = "Equip Dw",
+	Name = "Equip Weight",
 	CurrentValue = false,
 	Flag = "Equip Dw1",
 	Callback = function(state)
@@ -50,7 +53,7 @@ local Toggle = Tab:CreateToggle({
 	end,
 })
 local Toggle = Tab:CreateToggle({
-	Name = "Farm Dw",
+	Name = "Farm Weight",
 	CurrentValue = false,
 	Flag = "Farm Dw1", 
 	Callback = function(state)
@@ -70,6 +73,7 @@ local Toggle = Tab:CreateToggle({
 	end
 	end,
 })
+--local Button
 local Toggle = Tab:CreateToggle({
 	Name = "Lock Player",
 	CurrentValue = false,
@@ -78,116 +82,28 @@ local Toggle = Tab:CreateToggle({
 		print(state)
 		if state then
 			for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-				if v:IsA('Part') then v.Anchored = true
+				if v:IsA('MeshPart') then v.Anchored = true
 				end
-			end
+				end
 		else
 			for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-				if v:IsA('Part') then v.Anchored = false
+				if v:IsA('MeshPart') then v.Anchored = false
+				end
 				end
 			end
-		end
-	end,
-})
-local Click = Tab:CreateButton({
-	Name = "Weight Counter",
-	Callback = function()
-    local ScreenGui = Instance.new("ScreenGui")
-    local Frame = Instance.new("Frame")
-    local UICorner = Instance.new("UICorner")
-    local UIGradient = Instance.new("UIGradient")
-    local textlabel = Instance.new("TextLabel")
-
-
-
-    ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-    ScreenGui.DisplayOrder = 999999999
-    ScreenGui.ResetOnSpawn = false
-
-    Frame.Parent = ScreenGui
-    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Frame.Position = UDim2.new(0.140724942, 0, 0.609101534, 0)
-    Frame.Size = UDim2.new(0, 160, 0, 35)
-
-    UICorner.Parent = Frame
-
-    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 155, 15)), ColorSequenceKeypoint.new(0.63, Color3.fromRGB(255, 131, 23)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 186, 126)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
-    UIGradient.Parent = Frame
-
-    textlabel.Name = "textlabel"
-    textlabel.Parent = Frame
-    textlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    textlabel.BackgroundTransparency = 1.000
-    textlabel.Size = UDim2.new(0, 160, 0, 35)
-    textlabel.Font = Enum.Font.SourceSansBold
-    textlabel.Text = "0"
-    textlabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-    textlabel.TextSize = 30.000
-
-    local function XVYMLY_fake_script()
-        local script = Instance.new('LocalScript', ScreenGui)
-
-        Frame = script.Parent.Frame
-        Frame.Draggable = true
-        Frame.Active = true
-        Frame.Selectable = true
-    end
-    coroutine.wrap(XVYMLY_fake_script)()
-
-    repeat
-        wait(.1)
-        local num = 0
-        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v.Name == "Double Weight" then
-                num += 1
-            end
-        end
-
-        if num == 0 then
-            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                if v.Name == "Double Weight" then
-                    num += 1
-                end
-            end
-        end
-        textlabel.Text = num..""
-    until num == 9999999999999
 	end,
 })
 local Section = Tab:CreateSection("Extra")
 local Button = Tab:CreateButton({
 	Name = "Del Hud",
 	Callback = function()
-		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ProteinBuy:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenShop:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenReb:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ImageLabel:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenPack:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.PopSound:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.BlackMarket:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.LiftRemind:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.MuscleGain:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RebFrame:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ShopFrame:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenSkins:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.Bar:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.ImageLabel:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.TextLabel.TextLabel:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashHolder:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashButton:Destroy()
-	game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RumbleHolder:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD:Destroy()
 	end,
 })
 local Button = Tab:CreateButton({
 	Name = "Del Rumble",
 	Callback = function()
         game.ReplicatedFirst.TourneyQ:Destroy()
-	end,
-})
-local Button = Tab:CreateButton({
-	Name = "Del Popup",
-	Callback = function()
-        game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.MuscleGain:Destroy()
 	end,
 })
 local Button = Tab:CreateButton({
@@ -204,7 +120,7 @@ local Button = Tab:CreateButton({
 local Button = Tab:CreateButton({
 	Name = "Tp To Safe Zone",
 	Callback = function()
-	    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1977.11462, 720.385986, -5297.51953, 0.999999285, 3.77589764e-08, 0.00118035381, -3.78530451e-08, 1, 7.9673292e-08, -0.00118035381, -7.9717914e-08, 0.999999285)
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1938, 146, -5296)
 	end,
 })
 local Button = Tab:CreateButton({
@@ -262,13 +178,34 @@ local Button = Tab:CreateButton({
 local Tab = Window:CreateTab("Duping")
 local Section = Tab:CreateSection("Duping")
 local Button = Tab:CreateButton({
-	Name = "Dupe Script"
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Auberon-Coding/Roblox-Scripts/main/IMPORTANT/Dupe", true))()
+	Name = "Auto Dupe",
+	Callback = function()
+		print("Dupe Began")	
+	_G.running = true
+		runLoop()
+end
 })
 local Button = Tab:CreateButton({
-	Name = "Use to fly and and type del Workspace in cmd bar"
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeroedCode/Executors/main/01newJ%20new"))()
+	Name = "Stop Auto Dupe",
+	Callback = function()
+		print("Dupe Began")	
+	_G.running = false
+end
 })
+		
+		function runLoop()
+			while _G.running do
+				local MarketplaceService = game:GetService("MarketplaceService")
+				local localPlayer = game.Players.LocalPlayer
+				
+				local function simulatePurchase(gamePassId)
+					MarketplaceService:SignalPromptGamePassPurchaseFinished(LocalPlayer, gamePassId, true)
+				end
+		
+				simulatePurchase(5949054)
+				wait(0.65)
+			end
+		end
 local Button = Tab:CreateButton({
 	Name = "Anti Afk",
 	Callback = function()
@@ -279,6 +216,60 @@ local Button = Tab:CreateButton({
 		end)
 	end,
 })
+local Tab = Window:CreateTab("Information")
+local Label3 = Tab:CreateLabel("Strength: 0")
+task.spawn(function()
+	repeat
+		task.wait(1)
+		Strength:GetPropertyChangedSignal("Value"):Connect(function()
+			Label3:Set("Strength: " .. Strength.Value)
+		end)
+	until Strength.Value == 999999999999999999999999999999
+end)
+local Label = Tab:CreateLabel("COMING SOON!!")
+--[[
+task.spawn(function()
+	repeat
+		task.wait(1)
+	local curvalue = str.Value;
+	local earned = 0.00;
+	str:GetPropertyChangedSignal("Value"):Connect(function()
+		local delta = (str.Value - curvalue);
+		earned += delta;
+		script.Parent.Text = "Earned: "..earned;
+		curvalue = str.Value;
+	end)
+
+	Label:Set("Gained: " .. earned)
+	until earned == 999999999999999999999999999999999999999999
+end)
+]]--
+
+local Label1 = Tab:CreateLabel("Weight: 0")
+
+task.spawn(function()
+    repeat
+        task.wait(1)
+        local num = 0
+        local backpackItems = LocalPlayer.Backpack:GetChildren()
+        for i, v in backpackItems do
+            if v.Name == "Double Weight" then
+                num += 1
+            end
+        end
+
+        if num == 0 then
+            local characterItems = character:GetChildren()
+            for i, v in characterItems do
+                if v.Name == "Double Weight" then
+                    num += 1
+                end
+            end
+        end
+
+        Label1:Set("Weight: " .. num)
+    until num == 9999999999999
+end)
 local Tab = Window:CreateTab("Misc")
 local Section = Tab:CreateSection("Misc")
 local Button = Tab:CreateButton({
@@ -310,30 +301,20 @@ local Button = Tab:CreateButton({
 			local ohString1 = "Pink"
 		  
 			game:GetService("ReplicatedStorage").Remotes.SellWep:FireServer(ohString1)
-			wait(.2)
+			task.wait(.2)
 			local ohString1 = "Green"
 		  
 			game:GetService("ReplicatedStorage").Remotes.SellWep:FireServer(ohString1)
-			wait(.2)
+			task.wait(.2)
 		  
 			local ohString1 = "Blue"
 		  
 			game:GetService("ReplicatedStorage").Remotes.SellWep:FireServer(ohString1)
-			wait(.2)
+			task.wait(.2)
 		  
 		   end
 	end,
 })
-local Button = Tab:CreateButton({
-	Name = "Fast Punch",
-	Callback = function()
-		old = hookfunction(wait,function(t)
-			if not checkcaller() and getcallingscript().Name == "MouseIcon" then
-				return old()
-			end
-			return old(t)
-		end)
-	end,
-})
 local Tab = Window:CreateTab("Credits")
 local Section = Tab:CreateSection("Credits - Auberon_Altas")
+Rayfield:LoadConfiguration()
