@@ -188,7 +188,7 @@ end
 local Button = Tab:CreateButton({
 	Name = "Stop Auto Dupe",
 	Callback = function()
-		print("Dupe Began")	
+		print("Dupe Stopped!")	
 	_G.running = false
 end
 })
@@ -221,7 +221,7 @@ local Label3 = Tab:CreateLabel("Strength: 0")
 task.spawn(function()
 	repeat
 		task.wait(1)
-		Strength:GetPropertyChangedSignal("Value"):Connect(function()
+		str:GetPropertyChangedSignal("Value"):Connect(function()
 			Label3:Set("Strength: " .. Strength.Value)
 		end)
 	until Strength.Value == 999999999999999999999999999999
