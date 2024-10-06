@@ -127,10 +127,29 @@ local function ULON_fake_script() -- Check.LocalScript
 	local script = Instance.new('LocalScript', Check)
 
 	script.Parent.MouseButton1Up:Connect(function()
-		while true do           
-			Bio.Text = [User.Text] .."|".. game.ReplicatedStorage.Data[User.Text].Strength.Value
-			wait()
-		end
+		local function autocompleteName(partialName)
+	    -- Loop through entries in Data to find a match that starts with partialName
+	    for _, player in pairs(game.ReplicatedStorage.Data:GetChildren()) do
+	        if string.sub(player.Name, 1, #partialName):lower() == partialName:lower() then
+	            return player.Name -- Return the fully matched name
+	        end
+	    end
+	    return partialName -- Return partialName if no match found
+	end
+	
+	while true do
+	    local username = autocompleteName(User.Text)
+	    local data = game.ReplicatedStorage.Data:FindFirstChild(username)
+	    
+	    -- Check if the matched name exists in Data and has a Strength value
+	    if data and data:FindFirstChild("Strength") then
+	        Bio.Text = username .. " | " .. data.Strength.Value
+	    else
+	        Bio.Text = "User not found"
+	    end
+	
+	    wait(0.1) -- Slight delay to avoid high resource usage
+	end
 	end)
 end
 coroutine.wrap(ULON_fake_script)()
